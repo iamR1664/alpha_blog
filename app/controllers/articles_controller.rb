@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params.require(:article).permit(:title,:description))
     if @article.save
       flash[:notic] = "atricle was created successfully."
-      redirect_to @article
+      redirect_to articles_path
     else
     puts @article.errors.full_messages.join(", ")
     render "new"
@@ -32,10 +32,15 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     if @article.update(params.require(:article).permit(:title,:description))
       flash[:notic] = "atricle was updated successfully."
-      redirect_to @article
+      redirect_to articles_path
     else
     puts @article.errors.full_messages.join(", ")
     render "edit"
-  end
-end
+    end
+  end 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
+  end 
 end
