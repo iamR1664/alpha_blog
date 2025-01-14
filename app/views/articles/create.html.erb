@@ -4,8 +4,8 @@
   <h2> The following errors pervented the article from being saved</h2>
   <ul>
     <% @article.errors.full_messages.each do |msg|%>
-      <li> <%= msg %></li>
-    <% end %>
+      <li><%= msg %></li>
+    <%end%>
   </ul>
 <% end %>
 
@@ -25,3 +25,6 @@
   </p>
 
   <% end %>
+
+  
+    <p> <% link_to 'Cancel and Return to articles listing', articles_path %></p>
