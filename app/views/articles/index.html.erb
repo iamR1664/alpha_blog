@@ -1,28 +1,27 @@
-<h1>Articles listing page</h1>
+<h1 class="text-center text-2xl font-bold py-8 px-1">Articles list</h1>
+  <% @articles.each do |article| %>
+<div class="max-w-2xl mx-auto sm:px-6 lg:px-8 mb-8">
+    <div class="overflow-hidden shadow-md">
+        <!-- card header -->
+        <div class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase text-center">
+          by roba 
+        </div>
 
+        <!-- card body -->
+        <div class="p-6 bg-white border-b border-gray-200 text-center"> 
+        <h5><%=link_to article.title, article_path(article), class:"hover:text-blue-400" %></h5>
+        <p><%=article.description %></p>
+        <%= link_to 'Edit', edit_article_path(article) , class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border border-blue hover:border-transparent"%>
+        <%= link_to 'Delete', article_path(article), class:"bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"} %> 
+        <%= link_to 'Show', article_path(article) , class:"bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent"%>
+        </div>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan = '3'>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%=article.description %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Delete', article_path(article), data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"} %> </td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-
-      </tr>
-    <% end %> 
-  </tbody>
-</table>
-
-<p>
-  <%= link_to 'Create a new Article' , new_article_path%>
-</p>
+        <!-- card footer -->
+        <div class="p-6 bg-white border-gray-200 text-center mb-6 py-8 px-8">
+        <small>created <%=time_ago_in_words( article.created_at)%> ago,
+        edited <%= time_ago_in_words (article.updated_at)%> ago
+        </small>
+    </div>
+</div>
+<%end%>
