@@ -1,7 +1,9 @@
-<h1>Showing article details</h1>
-
-<p><strong>Title:</strong><%= @article.title%></p>
-<p><strong>Description:</strong><%= @article.description%></p>
-<%= link_to 'Edit', edit_article_path(@article) %>
-<%= link_to 'Delete', article_path(@article), data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"} %> 
-<%= link_to 'Return to articles listing', articles_path  %>
+<h1 class="text-center text-2xl font-bold mt-3 mb-3">Showing article details</h1>
+<div class="w-full lg:w-1/2 bg-gray-800 p-5 shadow-md  mx-auto sm:px-6 lg:px-8 mb-8">
+<p class="text-white py-2 px-2"> <strong>Title:</strong><%= @article.title%></p>
+<p class="text-white py-2 px-2"><strong>Description:</strong><%= @article.description%></p>
+<%= link_to 'Edit', edit_article_path(@article) , class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border border-blue hover:border-transparent py-2 px-2"%>
+<%= link_to 'Delete', article_path(@article), class:"bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent py-2 px-2", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"} %> 
+<%= link_to 'Show', article_path(@article) , class:"bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent py-2 px-2"%>
+<p class='text-center mb-4  text-white  bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent py-2 px-2 mt-5'> <%= link_to 'Return to articles list', articles_path %></p>
+</div>

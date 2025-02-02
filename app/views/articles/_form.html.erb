@@ -1,26 +1,23 @@
-<h2> The following errors pervented the article from being saved</h2>
+<div class="w-full lg:w-1/2 bg-gray-800 p-5 shadow-md  mx-auto sm:px-6 lg:px-8 mb-8">
+<h2 class="text-center py-5 px-8 text-white"> The following errors pervented the article from being saved</h2>
 <% if @article.errors.any? %>
   <ul>
   <% @article.errors.full_messages.each do |msg|%>
-    <li> <%= msg %></li>
+    <li class="text-center py-2 px-2 text-white"> <%= msg %></li>
   <% end %>
   </ul>
 <% end %>
 
-<%= form_with(model: @article,local: true, data: { turbo: false }) do |f| %>
-
-<p>
-<%= f.label :title%><br/>
-<%= f.text_field :title%> 
-</p>
-
-<p>
-<%= f.label :description %><br/>
-<%= f.text_area :description %>
-</p>
-
-<p>
-<%= f.submit%>
-</p>
+<%= form_with(model: @article,local: true,class: 'flex items-center justify-center flex-wrap', data: { turbo: false }) do |f| %>
+  <div class="text-white initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+    <%= f.label :title, class: 'md:mb-0 mb-5 mr-10' %>
+    <%= f.text_field :title%> 
+  </div>
+  <div class="text-white initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+    <%= f.label :description, class: 'md:mb-0 mb-5 px-2 py-2' %>
+    <%= f.text_area :description, class: 'w-[100%] px-4 py-2 rounded-xl appearance-none text-heading text-md' %>
+  </div>
+<%= f.submit class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' %>
 
 <% end %>
+</div>
