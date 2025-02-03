@@ -9,12 +9,12 @@
 <% end %>
 
 <%= form_with(model: @article,local: true,class: 'flex items-center justify-center flex-wrap', data: { turbo: false }) do |f| %>
-  <div class="text-white initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
-    <%= f.label :title, class: 'md:mb-0 mb-5 mr-10' %>
+  <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+    <%= f.label :title, class: 'md:mb-0 mb-5 mr-10 text-white' %>
     <%= f.text_field :title%> 
   </div>
-  <div class="text-white initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
-    <%= f.label :description, class: 'md:mb-0 mb-5 px-2 py-2' %>
+  <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+    <%= f.label :description, class: 'md:mb-0 mb-5 px-2 py-2  text-white' %>
     <%= f.text_area :description, class: 'w-[100%] px-4 py-2 rounded-xl appearance-none text-heading text-md' %>
   </div>
 <%= f.submit class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' %>
