@@ -1,0 +1,8 @@
+<h2 class="text-center py-5 px-8 text-white"> The following errors pervented the article from being saved</h2>
+<% if obj.errors.any? %>
+  <ul>
+  <% obj.errors.full_messages.each do |msg|%>
+    <li class="text-center py-2 px-2 text-white"> <%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>

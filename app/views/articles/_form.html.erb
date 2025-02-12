@@ -1,13 +1,5 @@
 <div class="w-full lg:w-1/2 bg-gray-800 p-5 shadow-md  mx-auto sm:px-6 lg:px-8 mb-8">
-<h2 class="text-center py-5 px-8 text-white"> The following errors pervented the article from being saved</h2>
-<% if @article.errors.any? %>
-  <ul>
-  <% @article.errors.full_messages.each do |msg|%>
-    <li class="text-center py-2 px-2 text-white"> <%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
-
+<%=render 'shared/errors', obj: @article%>
 <%= form_with(model: @article,local: true,class: 'flex items-center justify-center flex-wrap', data: { turbo: false }) do |f| %>
   <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
     <%= f.label :title, class: 'md:mb-0 mb-5 mr-10 text-white' %>
@@ -20,4 +12,4 @@
 <%= f.submit class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' %>
 
 <% end %>
-</div>
+</div> 
