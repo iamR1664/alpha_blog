@@ -1,4 +1,4 @@
-<h2 class="text-center py-5 px-8 text-white"> The following errors pervented the article from being saved</h2>
+<h2 class="text-center py-5 px-8 text-white"> The following errors pervented the <%= obj.class.name.downcase %> from being saved</h2>
 <% if obj.errors.any? %>
   <ul>
   <% obj.errors.full_messages.each do |msg|%>
