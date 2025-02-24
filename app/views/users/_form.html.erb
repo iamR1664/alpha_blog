@@ -13,7 +13,7 @@
   <%= f.label :password, class: 'md:mb-0 mb-5 mr-10 text-white' %>
   <%= f.password_field :password%> 
   </div>
-  <%= f.submit "sign up", class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' %>
+  <%= f.submit(@user.new_record? ? "sign up" : "update accont", class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' )%>
 
 <% end %>
 </div>
