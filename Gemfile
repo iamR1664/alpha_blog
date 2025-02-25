@@ -65,3 +65,5 @@ end
 gem "tailwindcss-rails", "~> 3.2"
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
+
+gem 'will_paginate', '~> 4.0'

@@ -1,5 +1,10 @@
-<h1 class="text-center text-2xl font-bold"><%= @user.username%>'s profile</h1>
-<h3 class="text-center  font-bold">articles</h3>
-
+<h1 class="text-center text-2xl font-bold m-8"><%= @user.username%>'s profile</h1>
+<h3 class="text-center py-4 px-7 font-bold">articles</h3>
+<div class = "text-center py-4 px-7">
+<%= link_to 'Edit profile', edit_user_path, class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border border-blue hover:border-transparent"%> 
+</div>
 <%= render 'articles/article' %>
-<p class='text-center'> <%= link_to 'Return to articles list', articles_path %></p>
+<div class="digg_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+<p class='text-center'> <%= link_to 'Return to users list', users_path %></p>

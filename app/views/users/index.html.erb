@@ -1,0 +1,29 @@
+<h1 class="text-center text-2xl font-bold">Alpha Bloggers</h1>
+
+<% @users.each do |user| %>
+  <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 mb-8">
+      <div class="overflow-hidden shadow-md">
+          <!-- card header -->
+          <div class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase text-center">
+              <%=link_to user.username , user%> 
+          </div>
+  
+          <!-- card body -->
+          <div class="p-6 bg-white border-b border-gray-200 text-center"> 
+          <p><%= pluralize(user.articles.count , "article") %></p>
+          <%= link_to 'view profile', user , class:"bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent"%>
+          <%= link_to 'Edit profile', edit_user_path(user) , class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border border-blue hover:border-transparent"%> 
+
+          </div>
+          </div>
+  
+          <!-- card footer -->
+          <div class="p-6 bg-white border-gray-200 text-center mb-6 py-8 px-8">
+          <small> Joined <%=time_ago_in_words( user.created_at)%> ago
+          </small>
+      </div>
+  </div>
+  <%end%>
+  <div class="digg_pagination">
+    <%= will_paginate @user, :container => false %>
+  </div>
