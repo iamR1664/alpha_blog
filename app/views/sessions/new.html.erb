@@ -1,0 +1,16 @@
+<h1 class="text-center text-2xl font-bold">sign up for alpha blog</h1>
+<div class="w-full lg:w-1/2 bg-gray-800 p-5 shadow-md  mx-auto sm:px-6 lg:px-8 mb-8">
+<%= form_with(scope: :session,local: true,class: 'flex items-center justify-center flex-wrap', data: { turbo: false }) do |f| %>
+  <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+  <%= f.label :email, class: 'md:mb-0 mb-5 mr-10 text-white' %>
+  <%= f.email_field :email%> 
+  </div>
+  <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+  <%= f.label :password, class: 'md:mb-0 mb-5 mr-10 text-white'%>
+  <%= f.password_field :password%> 
+  </div> 
+  <%= f.submit "log in", class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent' %>
+
+<% end %>
+</div>
+<p class='text-center'> <%= link_to 'Return to articles list', articles_path %></p>
