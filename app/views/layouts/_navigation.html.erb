@@ -9,6 +9,8 @@
     <a href="about" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">about</a>
     <a class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"></a>
     <%= link_to "Bloggers" , users_path ,class:"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1" %>
+    <%= link_to "log in" , login_path ,class:"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1" %>
+        <%= link_to "log out" , logout_path ,class:"text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"}  %>
     <!-- </div> -->
 
   </div>
