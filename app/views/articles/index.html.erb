@@ -4,4 +4,6 @@
 <div class="digg_pagination m-8">
     <%= will_paginate @articles, :container => false %>
   </div>
+  <%if logged_in?%>
 <%= link_to 'Create a new Article' , new_article_path , class:"text-white bg-black font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-end p-5"%>
+<%end%>

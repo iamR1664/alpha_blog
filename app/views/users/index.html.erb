@@ -12,9 +12,15 @@
           <div class="p-6 bg-white border-b border-gray-200 text-center"> 
           <p><%= pluralize(user.articles.count , "article") %></p>
           <%= link_to 'view profile', user , class:"bg-transparent hover:bg-green-600 text-green-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-blue hover:border-transparent"%>
-          <%if logged_in? and user == current_user%>
-          <%= link_to 'Edit profile', edit_user_path(user) , class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border border-blue hover:border-transparent"%> 
-          <%end%>
+          <%if logged_in?%>
+              <% if user == current_user%>
+                <%= link_to 'Edit profile', edit_user_path(user) , class:"bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white duration-700 transition font-semibold py-1 px-4 border border-blue hover:border-transparent"%> 
+                <%= link_to "delete profile", user_path(user), class:"bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-red-700 hover:border-transparent", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"}%>
+                <%end%>
+              <%if current_user.admin?%>
+                <%= link_to "delete profile", user_path(user), class:"bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white duration-700 py-1 px-4 border border-red-700 hover:border-transparent", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"}%>
+              <%end%>
+          <%end%>    
           </div>
           </div>
   
