@@ -1,0 +1,12 @@
+<h1 class="text-center text-2xl font-bold">create a new category</h1>
+<div class="w-full lg:w-1/2 bg-gray-800 p-5 shadow-md  mx-auto sm:px-6 lg:px-8 mb-8">
+<%=render 'shared/errors', obj: @category%>
+<%= form_with(model: @category,local: true,class: 'flex items-center justify-center flex-wrap', data: { turbo: false }) do |f| %>
+  <div class="text-black initials w-full flex md:flex-row flex-col justify-evenly py-5 px-8">
+    <%= f.label :name ,"category name", class: 'md:mb-0 mb-5 mr-10 text-white' %>
+    <%= f.text_field :name%> 
+  </div>
+  <%= f.submit class: 'text-center w-full text-white bg-transparent hover:bg-gray-600 text-gray-600 hover:text-white duration-700 transition  font-semibold py-1 px-4 border  hover:border-transparent'%>
+<% end %>
+</div>
+<p class='text-center'> <%= link_to 'Return to the home page', root_path %></p>
